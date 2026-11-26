@@ -1,7 +1,6 @@
 import pytest
 from src.manager import Manager
-from src.parameters import Parameters
-from src.models import Transfer
+from src.models import Parameters, Transfer
 
 def test_validate_transfer_amounts():
     manager = Manager(Parameters())
