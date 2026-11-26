@@ -32,6 +32,9 @@ class Manager:
         return self.apartments.get(apartment_key)
 
     def validate_transfer_amounts(self) -> List[Transfer]:
+        """Returns transfers outside the [min_transfer_amount, max_transfer_amount] range."""
+        if self.min_transfer_amount > self.max_transfer_amount:
+            raise ValueError("min_transfer_amount cannot be greater than max_transfer_amount")
         return [
             transfer for transfer in self.transfers
             if transfer.amount_pln < self.min_transfer_amount
